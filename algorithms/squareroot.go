@@ -10,11 +10,13 @@ import (
 func Sqrt(x float64) float64 {
 	z := x / 2
 	last := z
+	precision := .000001
+
 	for {
 		square := z * z
 		if square == x {
 			return z
-		} else if last-z < .000001 && math.Abs(x-square) < .01 {
+		} else if last-z < precision && math.Abs(x-square) < precision {
 			return z
 		}
 
